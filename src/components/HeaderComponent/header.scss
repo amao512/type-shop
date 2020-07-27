@@ -1,0 +1,38 @@
+.header {
+    color: #222;
+    padding: 15px;
+
+    img {
+        width: 30px;
+    }
+
+    .section {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-gap: 15px;
+        align-items: center;
+
+        .header-logo {
+            a {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                text-decoration: none;
+                img {
+                    width: 50px;
+                }
+                h1 {
+                    color: rgb(74,225,215);
+                    margin-left: 20px;
+                }
+            }
+        }
+
+        .menu {
+            justify-self: end;
+            a {
+                margin-left: 15px;
+            }
+        }
+    }
+}

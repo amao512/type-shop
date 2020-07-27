@@ -1,0 +1,48 @@
+.sidebar {
+    border-radius: 4px;
+
+    img {
+        width: 20px;
+    }
+
+    ul {
+        list-style: none;
+        .catalog {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 10px;
+            border-bottom: 2px solid rgb(60,176,232);
+
+            p {
+                color: rgb(60,176,232);
+                margin-left: 10px;
+            }
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            padding: 6px 0;
+            cursor: pointer;
+            transition: all .1s ease;
+            p {
+                text-decoration: none;
+                color: rgb(60,176,232);
+                margin-left: 18px;
+                transition: all .1s ease;
+                cursor: pointer;
+            }
+
+            &:hover {
+                background-color: rgb(60,176,232);
+                p {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
