@@ -1,33 +1,22 @@
-import React from 'react'
+import React, { FC } from 'react'
 import './sidebar.scss'
-import catalogIcon from '../../assets/images/007-menu-1.svg'
 import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { RootState } from '../../redux/store'
+import { CatalogType } from '../../redux/reducers/catalogs'
 
-export const Sidebar = () => {
+type MapStatePropsType = {
+    catalogs: Array<CatalogType>
+}
 
-    type CatalogType = {
-        name: string
-        path: string
-    }
+type PropsType = MapStatePropsType
 
-    const catalogs: Array<CatalogType> = [
-        { name: 'Школьные товары', path: 'school-supplies' },
-        { name: 'Летние товары', path: 'summer-supplies' },
-        { name: 'Продукты питания', path: 'food' },
-        { name: 'Красота и здоровье', path: 'beaty-health' },
-        { name: 'Сад и огород', path: 'garden' },
-        { name: 'Книги', path: 'books' },
-        { name: 'Ваш дом', path: 'u-house' },
-        { name: 'Книги', path: 'books' },
-        { name: 'Электроника', path: 'electronics' },
-    ]
-
+const Sidebar: FC<PropsType> = ({ catalogs }) => {
     return (
         <div className={'sidebar'}>
             <ul>
                 <div className={'catalog'}>
                     <p>Каталог</p>
-                    <img src={catalogIcon} alt='' />
                 </div>
 
                 { catalogs.map((catalog, index) => (
@@ -41,3 +30,9 @@ export const Sidebar = () => {
         </div>
     )
 }
+
+const mstp = (state: RootState): MapStatePropsType => ({
+    catalogs: state.catalogs.all
+})
+
+export default connect<MapStatePropsType, {}, {}, RootState>(mstp)(Sidebar)
