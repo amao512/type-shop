@@ -1,7 +1,7 @@
-import { GET_PRODUCTS } from './../constants/index'
+import { InferActionsType } from './../store';
 
-export type GetProductsType = {
-    type: typeof GET_PRODUCTS
+export type ProductsActionsType = InferActionsType<typeof productsActions>
+
+export const productsActions = {
+    getProducts: () => ({ type: 'GET_PRODUCTS' } as const)
 }
-
-export const getProducts = (): GetProductsType => ({ type: GET_PRODUCTS })

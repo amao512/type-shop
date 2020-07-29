@@ -1,4 +1,4 @@
-import { GetProductsType } from './../actions/products';
+import { ProductsActionsType } from './../actions/products';
 import { GET_PRODUCTS } from '../constants'
 import product1 from '../../assets/images/airpods.png'
 import product2 from '../../assets/images/marker.jpg'
@@ -23,11 +23,9 @@ const initialState = {
 
 type InitialStateType = typeof initialState
 
-type ActionsType = GetProductsType
-
-const productsReducer = (state = initialState, action: ActionsType): InitialStateType => {
+const productsReducer = (state = initialState, action: ProductsActionsType): InitialStateType => {
     switch(action.type){
-        case GET_PRODUCTS:
+        case 'GET_PRODUCTS':
             return state
         default:
             return state
